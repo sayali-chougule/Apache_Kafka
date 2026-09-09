@@ -2,16 +2,46 @@
 
 # Step 1: Download and extract Kafka
 
-### Download Kafka by running the command below:
+1. Download Kafka by running the command below:
 
 ```sh
 wget https://archive.apache.org/dist/kafka/3.8.0/kafka_2.13-3.8.0.tgz
 ```
 
-### Extract Kafka from the zip file by running the command below
+2. Extract Kafka from the zip file by running the command below
 
 ```sh
 tar -xzf kafka_2.13-3.8.0.tgz
 ```
 
 This command will create a new directory `kafka_2.13-3.8.0` in the current directory
+
+# Step 2: Configure KRaft and start server
+
+1. Navigate to the kafka_2.13-3.8.0 directory
+
+```sh
+cd kafka_2.13-3.8.0
+```
+
+2. Generate a cluster UUID that will uniquely identify the Kafka cluster
+
+```sh
+KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+```
+
+This cluster id will be used by the KRaft controller.
+
+3. KRaft requires the log directories to be configured. Run the following command to configure the log directories passing the cluster ID.
+
+```sh
+bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+```
+
+4. Now that KRaft is configured, we can start the Kafka server by running the following command
+
+```sh
+bin/kafka-server-start.sh config/kraft/server.properties
+```
+
+sure that the Kafka server has started when the output displays messages like "Kafka Server started"

@@ -45,3 +45,25 @@ bin/kafka-server-start.sh config/kraft/server.properties
 ```
 
 sure that the Kafka server has started when the output displays messages like "Kafka Server started"
+
+# Step 3: Create a topic and start producer
+
+1. Start a new terminal and change to the kafka_2.13-3.8.0 directory.
+
+```sh
+cd kafka_2.13-3.8.0
+```
+
+2. To create a topic named news, run the command below
+
+```sh
+bin/kafka-topics.sh --create --topic news --bootstrap-server localhost:9092
+```
+
+You will see the message: ```Created topic news```
+
+3. Need a producer to send messages to Kafka. Run the command below to start a producer
+
+```sh
+bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic news
+```

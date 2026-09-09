@@ -77,3 +77,23 @@ Good morning
 Good day
 Enjoy the Kafka lab
 ```
+
+# Step 4: Start Consumer
+
+**We need a consumer to read messages from Kafka**
+
+1. Start a new terminal and change to the kafka_2.13-3.8.0 directory.
+
+```sh
+cd kafka_2.13-3.8.0
+```
+
+2. Run the command below to listen to the messages in the topic news
+
+```sh
+bin/kafka-console-consumer.sh   --bootstrap-server localhost:9092   --topic news   --from-beginning
+```
+
+3. You should see all the messages you sent from the producer appear here.
+
+4. You can go back to the producer terminal and type some more messages, one message per line, and you will see them appear here

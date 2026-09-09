@@ -97,3 +97,38 @@ bin/kafka-console-consumer.sh   --bootstrap-server localhost:9092   --topic news
 3. You should see all the messages you sent from the producer appear here.
 
 4. You can go back to the producer terminal and type some more messages, one message per line, and you will see them appear here
+
+
+# Step 5: Explore Kafka directories
+
+**Kafka uses the /tmp//tmp/kraft-combined-logs directory to store the messages**
+
+1. Start a new terminal and navigate to the kafka_2.13-3.8.0 directory
+
+```sh
+cd kafka_2.13-3.8.0
+```
+
+2. Explore the root directory of the server
+
+```sh
+ls /
+```
+
+3. Notice there is a ```tmp``` directory. The ```kraft-combine-logs``` inside the ```tmp``` directory contains all the logs. To check the logs generated for the topic ```news``` run the following command:
+
+```sh
+ls /tmp/kraft-combined-logs/news-0
+```
+
+**Note: All messages are stored in the ```news-0``` directory under the /tmp/kraft-combined-logs directory**
+
+# Step 6: Clean up
+To stop the producer
+In the terminal where you are running producer, press ```CTRL+C```.
+
+To stop the consumer
+In the terminal where you are running consumer, press```CTRL+C```.
+
+To stop the Kafka server
+In the terminal where you are running Kafka server, press ```CTRL+C```.

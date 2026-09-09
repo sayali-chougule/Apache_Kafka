@@ -70,7 +70,7 @@ You will see the message: ```Created topic news```
 bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic news
 ```
 
-4. After the producer starts, and you get the '>' prompt, type any text message and press enter. Or you can copy the text below and paste. The below text sends three messages to Kafka
+4. After the producer starts, and you get the ```>``` prompt, type any text message and press enter. Or you can copy the text below and paste. The below text sends three messages to Kafka
 
 ```sh
 Good morning

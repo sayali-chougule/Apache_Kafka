@@ -48,6 +48,8 @@ sure that the Kafka server has started when the output displays messages like "K
 
 # Step 3: Create a topic and start producer
 
+**We need to create a topic before we can start to post messages**
+
 1. Start a new terminal and change to the kafka_2.13-3.8.0 directory.
 
 ```sh
@@ -66,4 +68,12 @@ You will see the message: ```Created topic news```
 
 ```sh
 bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic news
+```
+
+4. After the producer starts, and you get the '>' prompt, type any text message and press enter. Or you can copy the text below and paste. The below text sends three messages to Kafka
+
+```sh
+Good morning
+Good day
+Enjoy the Kafka lab
 ```
